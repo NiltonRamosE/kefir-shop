@@ -2,6 +2,14 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@theme {
+  --color-theme-ocean-twilight: #1A46BB;
+  --color-theme-vivid-royal: #3C27A1;
+  --color-theme-maya-blue: #55C0FF;
+  --color-theme-sky-reflection: #83B7DC;
+  --color-theme-pale-sky: #D7EEFC;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @font-face {

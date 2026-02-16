@@ -1,9 +1,15 @@
 ---
 import HomePage from '@/project/home/HomePage';
 import ProtectedLayout from '@/layouts/ProtectedLayout.astro';
-
+const robots = ["index", "follow"];
+const title = "Kefir Shop";
+const description = "Kefir Shop";
+const keywords = ["Kefir", "Yogurt", "Búlgaros", "Probióticos", "Sin Lactosa"];
+const url = "https://kefir-shop.vercel.app";
+const imageOG = "/favicon.svg";
+const imagetwt = "/favicon.svg";
 ---
 
-<ProtectedLayout>
+<ProtectedLayout {robots} {title} {description} {keywords} {url} {imageOG} {imagetwt}>
 	<HomePage  client:load/>
 </ProtectedLayout>
