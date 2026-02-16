@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Eye, Plus, Check } from "lucide-react";
 import { type Product } from '@/project/product/types/product.types';
 import { useCart } from '../hooks/useCart';
@@ -41,19 +40,16 @@ const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onViewDetails(product)}
     >
-      {/* Category Badge */}
       <div className={`absolute top-4 left-4 z-10 ${getCategoryColor(product.category)} text-white px-3 py-1 rounded-full text-sm font-medium`}>
         {product.category === 'kefir' ? 'Kéfir' : 'Búlgaros'}
       </div>
 
-      {/* Stock Badge */}
       {!product.inStock && (
         <div className="absolute top-4 right-4 z-10 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
           Agotado
         </div>
       )}
 
-      {/* Image Container */}
       <div className="relative h-48 overflow-hidden bg-linear-to-br from-theme-pale-sky to-white dark:from-gray-800 dark:to-gray-900">
         <img
           src={product.image}
@@ -61,7 +57,6 @@ const ProductCard = ({ product, onViewDetails }: ProductCardProps) => {
           className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-110"
         />
         
-        {/* Overlay with actions */}
         <div className={`absolute inset-0 bg-black/40 flex items-center justify-center gap-3 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           <Button
             size="icon"

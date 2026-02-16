@@ -46,7 +46,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
         </DialogHeader>
 
         <div className="grid md:grid-cols-2 gap-8 mt-4">
-          {/* Left Column - Image */}
           <div className="relative">
             <div className="rounded-2xl bg-linear-to-br from-theme-pale-sky to-white dark:from-gray-800 dark:to-gray-900 p-8">
               <img
@@ -56,7 +55,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
               />
             </div>
             
-            {/* Stock badge */}
             {!product.inStock && (
               <Badge variant="destructive" className="absolute top-4 right-4">
                 Agotado
@@ -64,7 +62,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
             )}
           </div>
 
-          {/* Right Column - Details */}
           <div>
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-2">
@@ -90,7 +87,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
               </div>
             </div>
 
-            {/* Benefits */}
             <div className="mb-6">
               <h4 className="font-semibold mb-3 flex items-center gap-2">
                 <Heart className="w-4 h-4 text-theme-ocean-twilight" />
@@ -108,7 +104,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
 
             <Separator className="my-6" />
 
-            {/* Quantity and Add to Cart */}
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <label className="font-medium">Cantidad:</label>
@@ -163,31 +158,6 @@ const ProductModal = ({ product, isOpen, onClose }: ProductModalProps) => {
                 </p>
               )}
             </div>
-
-            {/* Nutritional info placeholder */}
-            {product.nutritionalInfo && (
-              <div className="mt-6 p-4 bg-theme-pale-sky/30 rounded-lg">
-                <h4 className="font-semibold mb-2">Información Nutricional</h4>
-                <div className="grid grid-cols-4 gap-2 text-sm">
-                  <div>
-                    <span className="text-gray-500">Calorías</span>
-                    <p className="font-medium">{product.nutritionalInfo.calories || '-'}</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Proteínas</span>
-                    <p className="font-medium">{product.nutritionalInfo.protein || '-'}g</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Carbohidratos</span>
-                    <p className="font-medium">{product.nutritionalInfo.carbs || '-'}g</p>
-                  </div>
-                  <div>
-                    <span className="text-gray-500">Grasas</span>
-                    <p className="font-medium">{product.nutritionalInfo.fat || '-'}g</p>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </DialogContent>

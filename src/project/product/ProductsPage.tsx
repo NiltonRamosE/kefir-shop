@@ -10,7 +10,6 @@ import { ShoppingCart, Search, Filter } from "lucide-react";
 import type{ Product } from './types/product.types';
 import { useCart } from './hooks/useCart';
 
-// Mock data - productos
 const products: Product[] = [
   {
     id: '1',
@@ -28,12 +27,6 @@ const products: Product[] = [
       'Fortalece el sistema inmune',
       'Fuente de calcio'
     ],
-    nutritionalInfo: {
-      calories: 60,
-      protein: 3.5,
-      carbs: 4.8,
-      fat: 3.2
-    }
   },
   {
     id: '2',
@@ -73,7 +66,6 @@ const ProductsPage = () => {
       <Navbar />
       
       <main className="pt-20 pb-16">
-        {/* Header */}
         <div className="bg-linear-to-r from-theme-ocean-twilight to-theme-vivid-royal text-white py-12 mb-8">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Nuestros Productos</h1>
@@ -84,10 +76,8 @@ const ProductsPage = () => {
         </div>
 
         <div className="container mx-auto px-4">
-          {/* Filters and Cart */}
           <div className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="flex-1 flex gap-4">
-              {/* Search */}
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
@@ -99,7 +89,6 @@ const ProductsPage = () => {
                 />
               </div>
               
-              {/* Category filter */}
               <select
                 className="px-4 py-2 border rounded-lg bg-white dark:bg-gray-800"
                 value={selectedCategory}
@@ -111,7 +100,6 @@ const ProductsPage = () => {
               </select>
             </div>
 
-            {/* Cart button */}
             <Button
               className="bg-theme-ocean-twilight hover:bg-theme-vivid-royal text-white relative"
               onClick={() => setIsCartOpen(true)}
@@ -126,7 +114,6 @@ const ProductsPage = () => {
             </Button>
           </div>
 
-          {/* Products Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map(product => (
               <ProductCard
@@ -137,7 +124,6 @@ const ProductsPage = () => {
             ))}
           </div>
 
-          {/* Empty state */}
           {filteredProducts.length === 0 && (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">No se encontraron productos</p>
@@ -155,7 +141,6 @@ const ProductsPage = () => {
         </div>
       </main>
 
-      {/* Modals and Sidebars */}
       <ProductModal
         product={selectedProduct}
         isOpen={!!selectedProduct}

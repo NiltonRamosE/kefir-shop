@@ -1,10 +1,9 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetFooter } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Trash2, ShoppingBag, Plus, Minus, X } from "lucide-react";
 import { useCart } from '../hooks/useCart';
-import { type CartItem } from '../types/product.types'; // Importa el tipo
+import { type CartItem } from '../types/product.types';
 
 interface CartSidebarProps {
   isOpen: boolean;
@@ -45,9 +44,8 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
           <>
             <ScrollArea className="flex-1 h-[calc(100vh-200px)] my-4">
               <div className="space-y-4 pr-4">
-                {items.map((item: CartItem) => ( // Tipar el parámetro del map
+                {items.map((item: CartItem) => (
                   <div key={item.id} className="flex gap-4 bg-gray-50 dark:bg-gray-800 p-3 rounded-lg">
-                    {/* Product image */}
                     <div className="w-20 h-20 rounded-lg bg-linear-to-br from-theme-pale-sky to-white p-2 shrink-0">
                       <img
                         src={item.image}
@@ -56,7 +54,6 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                       />
                     </div>
 
-                    {/* Product details */}
                     <div className="flex-1">
                       <div className="flex justify-between">
                         <h4 className="font-semibold text-sm">{item.name}</h4>
@@ -71,7 +68,6 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                         S/{item.price} / {item.unit}
                       </p>
                       
-                      {/* Quantity controls */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center border rounded-lg">
                           <button
@@ -102,7 +98,6 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
 
             <SheetFooter className="border-t pt-4">
               <div className="w-full space-y-4">
-                {/* Subtotal */}
                 <div className="flex justify-between text-lg">
                   <span>Subtotal</span>
                   <span className="font-bold text-theme-ocean-twilight">
@@ -110,12 +105,10 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                   </span>
                 </div>
 
-                {/* Shipping note */}
                 <p className="text-xs text-gray-500">
                   * Los costos de envío se calcularán al finalizar la compra
                 </p>
 
-                {/* Action buttons */}
                 <div className="flex gap-3">
                   <Button
                     variant="outline"
@@ -135,7 +128,6 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                   </Button>
                 </div>
 
-                {/* Continue shopping */}
                 <Button
                   variant="link"
                   className="w-full text-gray-500"

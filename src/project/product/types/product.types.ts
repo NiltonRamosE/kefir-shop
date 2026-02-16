@@ -9,12 +9,6 @@ export interface Product {
   inStock: boolean;
   featured?: boolean;
   benefits?: string[];
-  nutritionalInfo?: {
-    calories?: number;
-    protein?: number;
-    carbs?: number;
-    fat?: number;
-  };
 }
 
 export interface CartItem extends Product {
