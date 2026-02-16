@@ -16,19 +16,28 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", href: "#inicio" },
     { name: "Productos", href: "/productos" },
     { name: "Nosotros", href: "/about" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contacto", href: "/#contacto" },
   ];
 
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.includes('#')) {
+      e.preventDefault();
+      setIsOpen(false);
+      
+      window.location.href = href;
+    } else {
+      setIsOpen(false);
+      window.location.href = href;
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    window.location.href = '/';
   };
 
   return (
@@ -42,9 +51,9 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <a
-            href="#inicio"
-            onClick={(e) => scrollToSection(e, "#inicio")}
-            className="text-2xl font-bold bg-linear-to-r from-theme-ocean-twilight to-theme-vivid-royal bg-clip-text text-transparent"
+            href="/"
+            onClick={handleLogoClick}
+            className="text-2xl font-bold bg-linear-to-r from-theme-ocean-twilight to-theme-vivid-royal bg-clip-text text-transparent cursor-pointer"
           >
             Kéfir<span className="text-theme-maya-blue">Shop</span>
           </a>
@@ -54,8 +63,8 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="text-gray-700 dark:text-gray-200 hover:text-theme-ocean-twilight dark:hover:text-theme-maya-blue transition-colors font-medium"
+                onClick={(e) => handleLinkClick(e, link.href)}
+                className="text-gray-700 dark:text-gray-200 hover:text-theme-ocean-twilight dark:hover:text-theme-maya-blue transition-colors font-medium cursor-pointer"
               >
                 {link.name}
               </a>
@@ -91,8 +100,8 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
-                  className="text-gray-700 dark:text-gray-200 hover:text-theme-ocean-twilight dark:hover:text-theme-maya-blue transition-colors font-medium py-2"
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="text-gray-700 dark:text-gray-200 hover:text-theme-ocean-twilight dark:hover:text-theme-maya-blue transition-colors font-medium py-2 cursor-pointer"
                 >
                   {link.name}
                 </a>
