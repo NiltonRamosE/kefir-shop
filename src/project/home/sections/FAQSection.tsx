@@ -17,7 +17,7 @@ const FAQSection = () => {
     },
     {
       question: "¿Los productos contienen azúcares añadidos?",
-      answer: "Nuestros productos son 100% naturales y no contienen azúcares añadidos. El dulzor proviene únicamente del proceso de fermentación natural. Para nuestras variedades saborizadas, usamos frutas frescas y miel orgánica."
+      answer: "Nuestros productos son 100% naturales y no contienen azúcares añadidos. El dulzor proviene únicamente del proceso de fermentación natural. Para nuestras variedades saborizadas, usamos frutas frescas y estevia."
     },
     {
       question: "¿Son aptos para personas con intolerancia a la lactosa?",
