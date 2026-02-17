@@ -11,7 +11,7 @@ interface CartSidebarProps {
   onClose: () => void;
 }
 
-const WHATSAPP_NUMBER = "51951011604";
+const WHATSAPP_NUMBER = "51921066773";
 
 const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
   const { items, removeItem, updateQuantity, getTotalPrice, clearCart } = useCart();
